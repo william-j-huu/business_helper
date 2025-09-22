@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "639434438883",
+    "project_id": "business-helper-f9467",
+    "storage_bucket": "business-helper-f9467.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:639434438883:android:6e15e6e9a7d698986a6dd6",
+        "android_client_info": {
+          "package_name": "com.example.buisnesshelper"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtGEUOIPa5VOrmSafbjaB_0FVcvAIAyqQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

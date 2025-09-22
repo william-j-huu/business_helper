@@ -40,7 +40,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
         currentIndex: _selectedIndex,
         selectedItemColor: primaryColor,
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "home"),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           BottomNavigationBarItem(icon: Icon(Icons.smart_toy), label: "Assistant"),
           BottomNavigationBarItem(icon: Icon(Icons.account_circle), label: "Profile"),
         ],
