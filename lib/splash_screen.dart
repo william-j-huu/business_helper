@@ -53,7 +53,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   maxLines: null,
                   overflow: TextOverflow.visible,
                   style: TextStyle(
-                    fontSize: 48, color: Colors.white, fontWeight: FontWeight.bold, fontFamily: "InstrumentSans"
+                    fontSize: 45, color: Colors.white, fontWeight: FontWeight.bold, fontFamily: "InstrumentSans"
                   ),
                 ),
               )
