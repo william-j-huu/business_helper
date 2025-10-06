@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import '../constants.dart';
@@ -24,24 +25,42 @@ class _ServicesScreenState extends State<ServicesScreen> {
           ),
         ),
       ),
-      body: Column(
-        children: [
-          GestureDetector(
-            onTap: (){},
-            child: Container(
-              width: double.infinity,
-              padding: EdgeInsets.all(16),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(16),
-                child: Image.network(
-                  "https://firebasestorage.googleapis.com/v0/b/business-helper-f9467.firebasestorage.app/o/images%2FAccounting.png?alt=media&token=977f8d77-3888-4016-8114-7956cd53e5b7",
-                  fit: BoxFit.cover,
-                ),
-              )
-            ),
+      body: StreamBuilder<QuerySnapshot>(
+          stream: FirebaseFirestore.instance.collection("services").snapshots(),
+          builder: (BuildContext context, AsyncSnapshot <QuerySnapshot> snapshot){
+            if (snapshot.hasError){
+              return Text("Error");
+            }
 
-          )
-        ],
+            if(snapshot.connectionState == ConnectionState.waiting){
+              return Center(child: CircularProgressIndicator());
+            }
+
+            final docs = snapshot.data!.docs;
+
+            return ListView.builder(
+              itemCount: docs.length,
+              itemBuilder: (context, int index){
+                final data = docs[index].data() as Map<String, dynamic>;
+                final url = data["url"] ?? 'None';
+
+                return GestureDetector(
+                  onTap: (){},
+                  child: Container(
+                      width: double.infinity,
+                      padding: EdgeInsets.all(16),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(16),
+                        child: Image.network(
+                          url,
+                          fit: BoxFit.cover,
+                        ),
+                      )
+                  ),
+                );
+              }
+            );
+          }
       ),
     );
   }
