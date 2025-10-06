@@ -88,14 +88,14 @@ class _SignupScreenState extends State<SignupScreen> {
             TextFormField(
                 controller : _passController,
                 decoration: const InputDecoration(labelText: "Password"),
-                obscureText: false,
+                obscureText: true,
                 validator: (value) => value == null || value.length < 8 ? 'Enter a valid password' : null
             ),
             SizedBox(height: 16),
             TextFormField(
                 controller : _passFinalController,
                 decoration: const InputDecoration(labelText: "Confirm Password"),
-                obscureText: false,
+                obscureText: true,
                 validator: (value) => value == null || !(value == _passController.text) ? 'Passwords do not match' : null
             ),
             SizedBox(height: 16),

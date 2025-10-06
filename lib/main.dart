@@ -3,6 +3,7 @@ import 'package:buisnesshelper/login_screen.dart';
 import 'package:buisnesshelper/navigation_screen.dart';
 import 'package:buisnesshelper/signup_screen.dart';
 import 'package:buisnesshelper/splash_screen.dart';
+import 'package:buisnesshelper/sub_screens/services_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -31,7 +32,8 @@ class MyApp extends StatelessWidget {
         "/":(context) => SplashScreen(),
         "/login_screen":(context) => LoginScreen(),
         "/signup_screen":(context) => SignupScreen(),
-        "/navigation_screen":(context) => NavigationScreen()
+        "/navigation_screen":(context) => NavigationScreen(),
+        "/services_screen":(context) => ServicesScreen()
       },
     );
   }

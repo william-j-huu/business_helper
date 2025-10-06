@@ -14,13 +14,13 @@ class _LoginScreenState extends State<LoginScreen> {
   final _passController = TextEditingController();
   final _emailController = TextEditingController();
   bool _isLoading = false;
-  String? _error;
+  String _error = "";
 
   Future<void> _submit() async{
     if(_formKey.currentState?.validate() ?? false){
       setState(() {
         _isLoading = true;
-        _error = null;
+        _error = "";
       });
 
       try{
@@ -37,7 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
       }
       catch(e){
         setState(() {
-          _error= "Signup Failed";
+          _error = e.toString();
         });
       }
       finally{
@@ -66,7 +66,7 @@ class _LoginScreenState extends State<LoginScreen> {
             TextFormField(
                 controller : _passController,
                 decoration: const InputDecoration(labelText: "Password"),
-                obscureText: false,
+                obscureText: true,
                 validator: (value) => value == null || value.length < 8 ? 'Enter a valid password' : null
             ),
             SizedBox(height: 16),
@@ -82,7 +82,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   Navigator.pushReplacementNamed(context, "/signup_screen");
                 },
                 child: Text("New User? Create Account")
-            )
+            ),
+            if (_error.isNotEmpty)...[
+              Text(_error, style: TextStyle(color: Colors.red),)
+            ]
           ],
         ),
       ),
